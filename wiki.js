@@ -6,7 +6,7 @@ const MAX_ALLOWED_TEXT_LENGTH = 320;
 
 //LINKS
 
-const wikipediaSearchAPILink ="http://en.wikipedia.org/w/api.php?action=query&generator=search&format=json&prop=info|extracts|pageterms&exintro=true&exchars=320&inprop=url&gsrsearch=";
+const wikipediaSearchAPILink ="https://en.wikipedia.org/w/api.php?action=query&generator=search&format=json&prop=info|extracts|pageterms&exintro=true&exchars=320&inprop=url&gsrsearch=";
 
 //TEXT
 
@@ -52,7 +52,10 @@ function makeRequest(searchText) {
     data: searchText,
     dataType: 'json',
     type: 'POST',
-    headers: { 'Api-User-Agent': 'KrisRimarWiki/1.1 (rimarkris@gmail.com)'},
+    headers: {
+      'Api-User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+      'Content-Type':'text/plain'
+    },
     success: function(data) {
 
       if(DEBUG) { console.log("Value of search: " + searchText); };
